@@ -103,6 +103,25 @@ cards:
       action: more-info
     entity: button.lxc_hermes_106_stop
     icon_color: red
+# Carte tarif majoré
+type: custom:mushroom-title-card
+title: >-
+  {{ 'Tarif majoré' if (3 <= now().hour < 6) or (8 <= now().hour < 12) else
+  'Tarif normal' }}
+grid_options:
+  columns: 5
+  rows: auto
+alignment: center
+
+# Carte Surtaxe Deepseek (dépend de sensor.surtaxe_deepseek)
+type: tile
+entity: sensor.surtaxe_deepseek
+icon: mdi:currency-usd
+vertical: false
+features_position: bottom
+grid_options:
+  columns: 6
+  rows: 1
 
 # Carte solde Deepsekk - graphique
 type: history-graph
